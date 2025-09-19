@@ -20,7 +20,7 @@ def load_entries():
     return entries
 
 # Route utama
-@app.route("/", methods=["GET", "POST"])
+# @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
         nama = request.form.get("nama")
@@ -49,6 +49,7 @@ def clear():
     open(GUESTBOOK_FILE, "w", encoding="utf-8").close()
     return redirect("/")
     
+
 
 
 
