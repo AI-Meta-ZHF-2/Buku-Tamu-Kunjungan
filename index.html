@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Buku Tamu Online</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Buku Tamu Online</h1>
+
+    <!-- Form Input -->
+    <form method="POST" action="/">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" required>
+
+        <label for="kontak">Kontak:</label>
+        <input type="text" id="kontak" name="kontak" required>
+
+        <label for="institusi">Institusi/Asal:</label>
+        <input type="text" id="institusi" name="institusi" required>
+
+        <label for="tujuan">Tujuan Kunjungan:</label>
+        <input type="text" id="tujuan" name="tujuan" required>
+
+        <label for="catatan">Catatan (opsional):</label>
+        <textarea id="catatan" name="catatan"></textarea>
+
+        <button type="submit">Kirim</button>
+    </form>
+
+    <!-- Tabel Daftar Tamu -->
+    <h2>Daftar Tamu</h2>
+    <form method="POST" action="/clear">
+        <button type="submit" style="background:red;">Clear Daftar Tamu</button>
+    </form>
+    <br>
+    <table>
+        <tr>
+            <th>Waktu</th>
+            <th>Nama</th>
+            <th>Kontak</th>
+            <th>Institusi/Asal</th>
+            <th>Tujuan Kunjungan</th>
+            <th>Catatan</th>
+        </tr>
+        {% for entry in entries %}
+        <tr>
+            <td>{{ entry.waktu }}</td>
+            <td>{{ entry.nama }}</td>
+            <td>{{ entry.kontak }}</td>
+            <td>{{ entry.institusi }}</td>
+            <td>{{ entry.tujuan }}</td>
+            <td>{{ entry.catatan }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
