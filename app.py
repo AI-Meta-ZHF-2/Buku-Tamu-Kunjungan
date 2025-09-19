@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect
 from datetime import datetime
-import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
@@ -57,6 +56,4 @@ def index():
 def clear():
     open(GUESTBOOK_FILE, "w", encoding="utf-8").close()
     return redirect("/")
-
-if __name__ == "__main__":
-    app.run(debug=True, port=5050)
+    
