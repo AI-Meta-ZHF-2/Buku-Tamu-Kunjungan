@@ -1,9 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from datetime import datetime
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
-
 app = Flask(__name__, template_folder=TEMPLATE_DIR)
 
 # Lokasi file penyimpanan
@@ -57,3 +54,4 @@ def clear():
     open(GUESTBOOK_FILE, "w", encoding="utf-8").close()
     return redirect("/")
     
+
