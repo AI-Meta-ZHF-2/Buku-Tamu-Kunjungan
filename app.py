@@ -44,11 +44,12 @@ def index():
     return render_template("index.html", entries=entries)
 
 # Route untuk clear daftar tamu
-@app.route("/clear", methods=["POST"])
+# @app.route("/clear", methods=["POST"])
 def clear():
     open(GUESTBOOK_FILE, "w", encoding="utf-8").close()
     return redirect("/")
     
+
 
 
 
