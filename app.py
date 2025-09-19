@@ -1,5 +1,14 @@
 from flask import Flask, render_template, request, redirect
 from datetime import datetime
+# import os
+
+#BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+#TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
+
+#app = Flask(__name__, template_folder=TEMPLATE_DIR)
+
+# Lokasi file penyimpanan
+#GUESTBOOK_FILE = os.path.join(BASE_DIR, "guestbook.txt")
 
 # Fungsi baca data tamu dari file
 def load_entries():
@@ -20,7 +29,7 @@ def load_entries():
     return entries
 
 # Route utama
-# @app.route("/", methods=["GET", "POST"])
+#@app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
         nama = request.form.get("nama")
@@ -44,13 +53,10 @@ def index():
     return render_template("index.html", entries=entries)
 
 # Route untuk clear daftar tamu
-# @app.route("/clear", methods=["POST"])
+#@app.route("/clear", methods=["POST"])
 def clear():
     open(GUESTBOOK_FILE, "w", encoding="utf-8").close()
     return redirect("/")
-    
 
-
-
-
-
+#if __name__ == "__main__":
+#   app.run(debug=True, port=5050)
