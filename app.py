@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from datetime import datetime
 
-GUESTBOOK_FILE = os.path.join(BASE_DIR, "guestbook.txt")
-
 # Fungsi baca data tamu dari file
 def load_entries():
     entries = []
@@ -51,5 +49,6 @@ def clear():
     open(GUESTBOOK_FILE, "w", encoding="utf-8").close()
     return redirect("/")
     
+
 
 
